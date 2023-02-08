@@ -436,11 +436,11 @@ class Updater
                 $constraint = $link->getPrettyConstraint();
                 if (false !== strpos($constraint, ',') && false !== strpos($constraint, '@')) {
                     $constraint = Preg::replaceCallback('{([><]=?\s*[^@]+?)@([a-z]+)}i', static function ($matches) {
-                        if ($matches[2] === 'stable') {
+                        // if ($matches[2] === 'stable') {
                             return $matches[1];
-                        }
+                        // }
 
-                        return $matches[1].'-'.$matches[2];
+                        // return $matches[1].'-'.$matches[2];
                     }, $constraint);
                 }
 
