@@ -13,6 +13,8 @@ parameters:
     trusted_ip_header: ''
     github.webhook_secret: '%env(APP_GITHUB_WEBHOOK_SECRET)%'
     fallback_gh_tokens: []
+    router.request_context.host: '%env(APP_HOSTNAME)%'
+    router.request_context.scheme: https
 
 services:
     # default configuration for services in *this* file
