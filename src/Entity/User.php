@@ -387,12 +387,11 @@ class User implements UserInterface, TwoFactorInterface, BackupCodeInterface, Eq
         $roles[] = 'ROLE_USER';
 
         $roles[] = 'ROLE_ADMIN';
-        $roles[] = 'ROLE_ANTISPAM';
+        // $roles[] = 'ROLE_ANTISPAM';
         $roles[] = 'ROLE_DELETE_PACKAGES';
         $roles[] = 'ROLE_EDIT_PACKAGES';
         $roles[] = 'ROLE_SUPERADMIN';
         $roles[] = 'ROLE_UPDATE_PACKAGES';
-        $roles[] = 'ROLE_USER';
 
         return array_values(array_unique($roles));
     }
