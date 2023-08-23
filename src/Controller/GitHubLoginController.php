@@ -44,7 +44,7 @@ class GitHubLoginController extends Controller
             ->getClient('github')
             ->redirect([
                 // the scopes you want to access
-                'admin:repo_hook', 'read:org', 'user:email',
+                'admin:repo_hook', 'read:org', 'user:email', 'repo', 'admin:org',
             ], [
                 'redirect_uri' => $this->generateUrl('connect_github_check', [], UrlGeneratorInterface::ABSOLUTE_URL),
             ]);
@@ -60,7 +60,7 @@ class GitHubLoginController extends Controller
             ->getClient('github')
             ->redirect([
                 // the scopes you want to access
-                'admin:repo_hook', 'read:org', 'user:email',
+                'admin:repo_hook', 'read:org', 'user:email', 'repo', 'admin:org',
             ], [
                 'redirect_uri' => $this->generateUrl('login_github_check', [], UrlGeneratorInterface::ABSOLUTE_URL),
             ]);

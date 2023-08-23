@@ -100,7 +100,7 @@ class DumpPackagesCommand extends Command
                 FROM package p
                 LEFT JOIN download d ON (d.id = p.id AND d.type = 1)
                 WHERE (replacementPackage != "spam/spam" OR replacementPackage IS NULL)
-                AND (d.total > 1000 OR d.lastUpdated > :date)
+                AND (d.total > 1000 OR d.lastUpdated > :date or (d.total IS NULL and d.lastUpdated IS NULL))
                 ORDER BY p.id ASC
             ', ['date' => date('Y-m-d H:i:s', strtotime('-4months'))]);
             $signal = null;

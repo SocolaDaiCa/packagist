@@ -117,9 +117,9 @@ class UpdaterWorker
             $apc = extension_loaded('apcu');
 
             foreach ($package->getMaintainers() as $maintainer) {
-                if ($maintainer->getId() === 1) {
-                    continue;
-                }
+                // if ($maintainer->getId() === 1) {
+                //     continue;
+                // }
                 if (!($newGithubToken = $maintainer->getGithubToken())) {
                     continue;
                 }
