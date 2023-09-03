@@ -23,12 +23,17 @@ use App\Service\GitHubUserMigrationWorker;
 use App\Service\Scheduler;
 use App\Util\UserAgentParser;
 use Composer\Pcre\Preg;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Graze\DogStatsD\Client as StatsDClient;
@@ -440,6 +445,15 @@ class ApiController extends Controller
         }
 
         $this->getEM()->flush();
+
+        $process = new Process(['../bin/console', 'packagist:dump-v2']);
+        // Run the command
+        $process->run();
+
+        // Check if the command was successful
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
 
         return new JsonResponse(['status' => 'success', 'jobs' => $jobs, 'type' => $receiveType], 202);
     }
