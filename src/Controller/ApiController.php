@@ -446,7 +446,7 @@ class ApiController extends Controller
 
         $this->getEM()->flush();
 
-        $process = new Process(['../bin/console', 'packagist:dump-v2']);
+        $process = new Process(['../bin/console', 'packagist:dump-v2', '--force']);
         // Run the command
         $process->run();
 
