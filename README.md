@@ -88,3 +88,7 @@ To setup the search index, run:
 bin/console algolia:configure
 bin/console packagist:index
 ```
+
+```bash
+bin/console packagist:dump-v2 --force
+```

@@ -71,7 +71,7 @@ class CopyrightValidator extends ConstraintValidator
             }
 
             $message = (new Email())
-                ->subject('Packagist.org package submission notification: '.$value->getName().' contains '.$vendor.' in its vendor name')
+                ->subject('packagist.socoladaica.com package submission notification: '.$value->getName().' contains '.$vendor.' in its vendor name')
                 ->from(new Address($this->mailFromEmail))
                 ->to($config['email'])
                 ->text('Check out '.$this->urlGenerator->generate('view_package', ['name' => $value->getName()], UrlGeneratorInterface::ABSOLUTE_URL).' for copyright infringement.')

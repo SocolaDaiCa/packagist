@@ -182,7 +182,7 @@ class User implements UserInterface, TwoFactorInterface, BackupCodeInterface, Eq
                 return null;
             }
 
-            $ctxt = ['http' => ['header' => ['User-Agent: packagist.org', 'Authorization: token '.$this->githubToken]]];
+            $ctxt = ['http' => ['header' => ['User-Agent: packagist.socoladaica.com', 'Authorization: token '.$this->githubToken]]];
             $res = @file_get_contents('https://api.github.com/user', false, stream_context_create($ctxt));
             if (!$res || !($res = json_decode($res, true))) {
                 return null;

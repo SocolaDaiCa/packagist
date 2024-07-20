@@ -30,7 +30,7 @@ use App\SecurityAdvisory\RemoteSecurityAdvisory;
 #[ORM\Index(name: 'updated_at_idx', columns: ['updatedAt'])]
 class SecurityAdvisory
 {
-    public const PACKAGIST_ORG = 'https://packagist.org';
+    public const PACKAGIST_ORG = 'https://packagist.socoladaica.com';
 
     #[ORM\Id]
     #[ORM\Column(type: 'integer')]

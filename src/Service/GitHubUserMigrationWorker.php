@@ -30,8 +30,8 @@ class GitHubUserMigrationWorker
 {
     use DoctrineTrait;
 
-    public const HOOK_URL = 'https://packagist.org/api/github';
-    public const HOOK_URL_ALT = 'https://packagist.org/api/update-package';
+    public const HOOK_URL = 'https://packagist.socoladaica.com/api/github';
+    public const HOOK_URL_ALT = 'https://packagist.socoladaica.com/api/update-package';
 
     public function __construct(
         private LoggerInterface $logger,
